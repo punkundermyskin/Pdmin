@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h1>Task list</h1>
+    <table class='table table-condensed'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Owner</th>
+            </tr>
+        <thead>
+        <tbody>
+            {% for win_task in data %}
+                    <tr>
+                        <td>{{win_task.id}}</td>
+                        <td>{{win_task.name}}</td>
+                        <td>{{win_task.owner}}</td>                          
+                    <tr>
+            {% endfor %}
+        <tbody>
+    </table>
+{% endblock %}

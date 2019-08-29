@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h1>Sensors</h1>
+    <table class='table table-condensed'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>OS</th>
+                <th>Hostname</th>
+                <th>Username</th>
+                <th>Version</th>
+                <th>Domain</th>
+                <th>Workgroup</th>
+                <th>Language</th>
+                <th>UUID</th>
+                <th>Time</th>
+                <th>Timezone</th>
+                <th>Boot Time</th> 
+                <th>Software</th>
+                <th>Networks</th>
+                <th>Users</th>
+                <th>Task List</th>
+                <th>Mounted Voluems</th>
+            </tr>
+        <thead>
+        <tbody>
+            {% for sensor in sensors %}
+                <tr>
+                    <td>{{sensor.id}}</td>
+                    <td>{{sensor.OS}}</td>
+                    <td>{{sensor.hostname}}</td>
+                    <td>{{sensor.username}}</td>
+                    <td>{{sensor.version}}</td>
+                    <td>{{sensor.domain}}</td>
+                    <td>{{sensor.workgroup}}</td>
+                    <td>{{sensor.language}}</td>
+                    <td>{{sensor.UUID}}</td>
+                    <td>{{sensor.current_time}}</td>
+                    <td>{{sensor.timezone}}</td>    
+                    <td>{{sensor.boot_time}}</td>                   
+                    <td><a href="{{ url_for('info', sensor_id = sensor.id, type_info = 'software_list') }}">link</a></td> 
+                    <td><a href="{{ url_for('info', sensor_id = sensor.id, type_info = 'network_info') }}">link</a></td> 
+                    <td><a href="{{ url_for('info', sensor_id = sensor.id, type_info = 'users_list') }}">link</a></td> 
+                    <td><a href="{{ url_for('info', sensor_id = sensor.id, type_info = 'task_list') }}">link</a></td> 
+                    <td><a href="{{ url_for('info', sensor_id = sensor.id, type_info = 'mounted_voluems') }}">link</a></td> 
+                <tr>
+            {% endfor %}
+        <tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<table class='table table-condensed'>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Run as Admin</th>
+        </tr>
+    <thead>
+    <tbody>
+        {% for task in win_task_list %}
+                <tr>
+                    {% include '_win_task.html' %}                                    
+                <tr>
+        {% endfor %}
+    <tbody>
+</table>
+
+
+        self.name = []
+        self.vendor = []
+        # self.version = []
+        self.install_date = []
+        self.install_location = []
+
+<table class='table table-condensed'>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Run as Admin</th>
+        </tr>
+    <thead>
+    <tbody>
+        {% for task in win_task_list %}
+                <tr>
+                    {% include '_win_task.html' %}                                    
+                <tr>
+        {% endfor %}
+    <tbody>
+</table>
+
+        self.network_info = []
+        self.users_list = []
+        self.time_data = [] 
+        self.mounted_voluems = []
+
+    <h1>Task</h1>
+    <label>ID</label>
+    <p>ID</p>
+    <label>OS</label>
+    <label>OS</label>
+    <label>Country</label>
+    <label>Country</label>
+    <label>Hostname</label>
+    <label>Hostname</label>
+    <label>Username</label>
+    <label>Username</label>
+    <td>{{sensor.communication_interval}}</td>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+    <label>Machine Information</label>
+{% endblock %}

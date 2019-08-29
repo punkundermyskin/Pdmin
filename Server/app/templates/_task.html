@@ -1,0 +1,8 @@
+<td>{{task.id}}</td>
+<td>{{task.type}}</td>
+<td>{{task.cmd}}</td>
+<td>{{task.time_result}}</td>
+<td><a href="{{ url_for('task', task_id = task.id, type_data = task.type) }}">link</a></td>
+<td>{{task.status}}</td>
+<td>{{task.flag_wait_result}}</td>
+<td>{{task.sensor_id}}</td>    

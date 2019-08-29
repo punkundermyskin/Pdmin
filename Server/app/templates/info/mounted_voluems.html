@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h1>Volumes</h1>
+    <table class='table table-condensed'>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>File System</th>
+                <th>Capacity</th>
+                <th>Free Space</th>
+                <th>Volume Serial Number</th>
+            </tr>
+        <thead>
+        <tbody>
+            {% for volume in data %}
+                    <tr>
+                        <td>{{volume.name}}</td>
+                        <td>{{volume.description}}</td>
+                        <td>{{volume.file_system}}</td>
+                        <td>{{volume.capacity}}</td>
+                        <td>{{volume.free_space}}</td>
+                        <td>{{volume.volume_serial_number}}</td>                                
+                    <tr>
+            {% endfor %}
+        <tbody>
+    </table>
+{% endblock %}

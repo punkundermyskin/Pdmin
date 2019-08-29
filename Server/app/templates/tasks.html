@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h1>Tasks</h1>
+    <table class='table table-condensed'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Command</th>
+                <th>Time Result</th>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Wait For Result</th>
+                <th>Sensor ID</th>
+            </tr>
+        <thead>
+        <tbody>
+            {% for task in tasks %}
+                {% if task.status == 'success' %}
+                    <tr class = success>
+                        {% include '_task.html' %}                                    
+                    <tr>
+                {% elif task.status == 'failed' %}
+                    <tr class = warning>
+                        {% include '_task.html' %}                                    
+                    <tr>
+                {% elif task.status == 'waiting' %}
+                    <tr class = primary>
+                        {% include '_task.html' %}                                    
+                    <tr>                    
+                {% endif %}
+            {% endfor %}
+        <tbody>
+    </table>
+{% endblock %}

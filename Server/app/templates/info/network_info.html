@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h1>Networks</h1>
+    <table class='table table-condensed'>
+        <thead>
+            <tr>
+                <th>IP Adress</th>
+                <th>Netmask</th>
+                <th>Mac Adress</th>
+                <th>Gateway</th>
+            </tr>
+        <thead>
+        <tbody>
+            {% for adapter in data %}
+                    <tr>
+                        <td>{{adapter.ip_adress}}</td>
+                        <td>{{adapter.netmask}}</td>
+                        <td>{{adapter.mac_adress}}</td>
+                        <td>{{adapter.gateway}}</td>                            
+                    <tr>
+            {% endfor %}
+        <tbody>
+    </table>
+{% endblock %}
